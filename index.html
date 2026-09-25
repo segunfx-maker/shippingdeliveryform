@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Provide shipment, recipient, address, and delivery preference details.">
+  <title>Delivery Information Form</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="page-shell">
+    <header class="masthead">
+      <a class="wordmark" href="#main">Dispatch<span>Form</span></a>
+      <div class="masthead-note"><span class="status-dot" aria-hidden="true"></span> Secure submission</div>
+    </header>
+
+    <main id="main">
+      <section class="hero" aria-labelledby="page-title">
+        <p class="eyebrow">Delivery request · Form 01</p>
+        <h1 id="page-title">Delivery<br><em>Information</em> Form</h1>
+        <p class="hero-copy">Share the details needed to coordinate a delivery. Fields marked <span aria-hidden="true">*</span><span class="sr-only">with an asterisk</span> are required.</p>
+      </section>
+
+      <form id="delivery-form" class="delivery-form" name="delivery-information" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+        <input type="hidden" name="form-name" value="delivery-information">
+        <p class="honeypot"><label>Leave this field empty: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+
+        <section class="form-section" aria-labelledby="shipment-heading">
+          <div class="section-heading"><span>01</span><div><p>Package overview</p><h2 id="shipment-heading">Shipment Details</h2></div></div>
+          <div class="field-grid">
+            <div class="field"><label for="reference">Tracking / Reference Number <b>*</b></label><input id="reference" name="reference_number" type="text" autocomplete="off" required placeholder="e.g. REF-28417"></div>
+            <div class="field"><label for="delivery-date">Delivery Date <b>*</b></label><input id="delivery-date" name="delivery_date" type="date" required></div>
+            <div class="field"><label for="delivery-time">Preferred Delivery Time</label><input id="delivery-time" name="preferred_delivery_time" type="time"></div>
+            <div class="field"><label for="package-count">Number of Packages <b>*</b></label><input id="package-count" name="number_of_packages" type="number" min="1" step="1" inputmode="numeric" required placeholder="1"></div>
+            <div class="field span-2"><label for="description">Package Description <b>*</b></label><input id="description" name="package_description" type="text" required placeholder="Briefly describe the contents or packaging"></div>
+          </div>
+        </section>
+
+        <section class="form-section" aria-labelledby="recipient-heading">
+          <div class="section-heading"><span>02</span><div><p>Primary contact</p><h2 id="recipient-heading">Recipient Information</h2></div></div>
+          <div class="field-grid">
+            <div class="field"><label for="full-name">Full Name <b>*</b></label><input id="full-name" name="full_name" type="text" autocomplete="name" required placeholder="Recipient's full name"></div>
+            <div class="field"><label for="phone">Phone Number <b>*</b></label><input id="phone" name="phone_number" type="tel" autocomplete="tel" required placeholder="+1 555 012 3456"></div>
+            <div class="field"><label for="email">Email Address <b>*</b></label><input id="email" name="email_address" type="email" autocomplete="email" required placeholder="name@example.com"></div>
+            <div class="field"><label for="company">Company / Organization</label><input id="company" name="company" type="text" autocomplete="organization" placeholder="Optional"></div>
+          </div>
+        </section>
+
+        <section class="form-section" aria-labelledby="address-heading">
+          <div class="section-heading"><span>03</span><div><p>Destination</p><h2 id="address-heading">Delivery Address</h2></div></div>
+          <div class="field-grid">
+            <div class="field span-2"><label for="street">Street Address <b>*</b></label><input id="street" name="street_address" type="text" autocomplete="street-address" required placeholder="Building number and street"></div>
+            <div class="field"><label for="unit">Apartment / Unit</label><input id="unit" name="apartment_unit" type="text" autocomplete="address-line2" placeholder="Optional"></div>
+            <div class="field"><label for="city">City <b>*</b></label><input id="city" name="city" type="text" autocomplete="address-level2" required></div>
+            <div class="field"><label for="region">State / Region <b>*</b></label><input id="region" name="state_region" type="text" autocomplete="address-level1" required></div>
+            <div class="field"><label for="postal">Postal / ZIP Code <b>*</b></label><input id="postal" name="postal_code" type="text" autocomplete="postal-code" required></div>
+            <div class="field span-2"><label for="country">Country <b>*</b></label><input id="country" name="country" type="text" autocomplete="country-name" required></div>
+          </div>
+        </section>
+
+        <section class="form-section" aria-labelledby="instructions-heading">
+          <div class="section-heading"><span>04</span><div><p>At the door</p><h2 id="instructions-heading">Delivery Instructions</h2></div></div>
+          <div class="field-grid">
+            <div class="field span-2"><label for="dropoff">Preferred Drop-off Location</label><input id="dropoff" name="dropoff_location" type="text" placeholder="e.g. Reception desk, side entrance"></div>
+            <div class="field span-2"><label for="access">Access / Gate Instructions</label><textarea id="access" name="access_instructions" rows="3" placeholder="Include only information needed to access the property"></textarea></div>
+            <div class="field span-2"><label for="notes">Additional Notes</label><textarea id="notes" name="additional_notes" rows="4" placeholder="Special handling or other useful details"></textarea></div>
+          </div>
+        </section>
+
+        <section class="form-section confirmation" aria-labelledby="confirmation-heading">
+          <div class="section-heading"><span>05</span><div><p>Review & acknowledge</p><h2 id="confirmation-heading">Recipient Confirmation</h2></div></div>
+          <div class="field-grid">
+            <div class="field"><label for="recipient-name">Recipient Name <b>*</b></label><input id="recipient-name" name="recipient_name" type="text" autocomplete="name" required></div>
+            <div class="field"><label for="confirmation-date">Date <b>*</b></label><input id="confirmation-date" name="confirmation_date" type="date" required></div>
+            <div class="field span-2 signature-field"><label for="signature">Signature <b>*</b></label><input id="signature" name="signature" type="text" required placeholder="Type your full legal name" aria-describedby="signature-help"><small id="signature-help">Typing your name serves as your electronic signature.</small></div>
+            <div class="field span-2 check-field"><input id="confirmation" name="information_confirmed" type="checkbox" value="Yes" required><label for="confirmation">I confirm that the delivery information provided above is accurate. <b>*</b></label></div>
+          </div>
+        </section>
+
+        <div id="form-status" class="form-status" role="status" aria-live="polite" tabindex="-1"></div>
+        <div class="form-footer">
+          <p><strong>Privacy reminder</strong> Do not include passwords, PINs, payment-card numbers, security answers, or other authentication credentials.</p>
+          <div class="actions"><button type="reset" class="button secondary">Clear Form</button><button type="submit" class="button primary"><span>Submit Form</span><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
+        </div>
+      </form>
+    </main>
+    <footer><span>Independent delivery information form</span><span>Information is used only to coordinate this request.</span></footer>
+  </div>
+</body>
+</html>
