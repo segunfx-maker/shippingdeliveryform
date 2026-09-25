@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Submit recipient and delivery details for an upcoming shipment.">
+  <title>Delivery Information</title>
+  <link rel="stylesheet" href="./assets/styles.css">
+</head>
+<body>
+  <main class="page-shell">
+    <form class="form-card" name="delivery-information" method="POST" action="/thank-you" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="delivery-information">
+      <p class="honeypot" aria-hidden="true">
+        <label>Leave this field empty <input name="bot-field" tabindex="-1" autocomplete="off"></label>
+      </p>
+
+      <header class="form-header">
+        <p class="eyebrow">Shipment details</p>
+        <h1>Delivery information</h1>
+        <p>Share the details needed to arrange your delivery. Fields marked <span aria-hidden="true">*</span><span class="sr-only">with an asterisk</span> are required.</p>
+      </header>
+
+      <section aria-labelledby="shipment-heading">
+        <h2 id="shipment-heading"><span>1</span> Shipment</h2>
+        <div class="grid">
+          <div class="field"><label for="reference">Tracking or reference number</label><input id="reference" name="reference" type="text" autocomplete="off"></div>
+          <div class="field"><label for="delivery-date">Delivery date</label><input id="delivery-date" name="delivery_date" type="date"></div>
+          <div class="field"><label for="delivery-time">Preferred delivery time</label><input id="delivery-time" name="delivery_time" type="time"></div>
+          <div class="field"><label for="packages">Number of packages</label><input id="packages" name="packages" type="number" min="1" inputmode="numeric"></div>
+          <div class="field full"><label for="description">Package description</label><input id="description" name="description" type="text"></div>
+        </div>
+      </section>
+
+      <section aria-labelledby="recipient-heading">
+        <h2 id="recipient-heading"><span>2</span> Recipient</h2>
+        <div class="grid">
+          <div class="field"><label for="full-name">Full name *</label><input id="full-name" name="name" type="text" autocomplete="name" required></div>
+          <div class="field"><label for="phone">Phone number</label><input id="phone" name="phone" type="tel" autocomplete="tel"></div>
+          <div class="field full"><label for="email">Email address</label><input id="email" name="email" type="email" autocomplete="email"></div>
+          <div class="field full"><label for="company">Company or organization</label><input id="company" name="company" type="text" autocomplete="organization"></div>
+        </div>
+      </section>
+
+      <section aria-labelledby="address-heading">
+        <h2 id="address-heading"><span>3</span> Delivery address</h2>
+        <div class="grid">
+          <div class="field full"><label for="address">Street address *</label><input id="address" name="address" type="text" autocomplete="street-address" required></div>
+          <div class="field"><label for="unit">Apartment or unit</label><input id="unit" name="unit" type="text" autocomplete="address-line2"></div>
+          <div class="field"><label for="city">City *</label><input id="city" name="city" type="text" autocomplete="address-level2" required></div>
+          <div class="field"><label for="region">State or region</label><input id="region" name="region" type="text" autocomplete="address-level1"></div>
+          <div class="field"><label for="postal">Postal or ZIP code</label><input id="postal" name="postal" type="text" autocomplete="postal-code"></div>
+          <div class="field full"><label for="country">Country *</label><input id="country" name="country" type="text" autocomplete="country-name" required></div>
+        </div>
+      </section>
+
+      <section aria-labelledby="instructions-heading">
+        <h2 id="instructions-heading"><span>4</span> Instructions</h2>
+        <div class="grid">
+          <div class="field full"><label for="dropoff">Preferred drop-off location</label><input id="dropoff" name="dropoff" type="text"></div>
+          <div class="field full"><label for="access">Access or gate instructions</label><textarea id="access" name="access" rows="3"></textarea></div>
+          <div class="field full"><label for="notes">Additional notes</label><textarea id="notes" name="notes" rows="3"></textarea></div>
+        </div>
+      </section>
+
+      <div class="security-note"><strong>Keep sensitive information private.</strong> Do not enter passwords, PINs, payment-card numbers, or authentication credentials.</div>
+      <div class="actions">
+        <button class="secondary" type="reset">Clear form</button>
+        <button class="primary" type="submit">Submit delivery details</button>
+      </div>
+    </form>
+  </main>
+  <script src="./assets/script.js" defer></script>
+</body>
+</html>
